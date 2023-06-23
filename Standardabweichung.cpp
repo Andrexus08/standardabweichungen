@@ -4,45 +4,49 @@
 #include <cmath>
 using namespace std;
 double x;
+int anzahl;
 vector<double> argumente;
 vector<double> wahrscheinlichkeiten;
 
 void input() {
-
+	cout << "Wie viele Werte mÃ¶chtest du jeweils eintragen?: " << endl;
+	cin >> anzahl;
 	cout << "Zahlen: ";
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < anzahl; i++) {
 
 		cin >> x;
 		argumente.push_back(x);
 	}
 	
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < anzahl; i++) {
 		cout << to_string(argumente[i]) + " ";
 	}
+	
 	x = 0;
+
 	cout << "\nWahrscheinlichkeiten: ";
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < anzahl; i++) {
 		cin >> x;
 		wahrscheinlichkeiten.push_back(x);
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < anzahl; i++) {
 		cout << to_string(wahrscheinlichkeiten[i]) + " ";
 	}
 }
 
 void calc() {
-	//Müüüüüh berechnen
-	double mü = 0;
+	//MÃ¼Ã¼Ã¼Ã¼Ã¼h berechnen
+	double mÃ¼ = 0; //Erwartungswert
 	double varianz = 0;
 	double standardabweichung_in_klammern_sigma = 0;
 
-	for (int i = 0; i < 5;i++) {
-		mü = argumente[i] * wahrscheinlichkeiten[i] + mü;
+	for (int i = 0; i < anzahl; i++) {
+		mÃ¼ = argumente[i] * wahrscheinlichkeiten[i] + mÃ¼;
 	}
-	cout << "\nErwartungswert ist: " + to_string(mü) << endl;
+	cout << "\nErwartungswert ist: " + to_string(mÃ¼) << endl;
 
-	for (int i = 0; i < 5; i++) {
-		varianz = (argumente[i] - mü) * (argumente[i] - mü) * wahrscheinlichkeiten[i] + varianz;
+	for (int i = 0; i < anzahl; i++) {
+		varianz = (argumente[i] - mÃ¼) * (argumente[i] - mÃ¼) * wahrscheinlichkeiten[i] + varianz;
 	}
 	cout << "Die Varianz betraegt: " + to_string(varianz) << endl;
 	
@@ -60,10 +64,3 @@ int main() {
 	cin >> y;
 	return 0;
 }
-
-
-
-
-
-
-
